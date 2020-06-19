@@ -1,0 +1,174 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2511
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\fnil\fcharset0 Menlo-Bold;}
+{\colortbl;\red255\green255\blue255;\red100\green56\blue32;\red255\green255\blue255;\red196\green26\blue22;
+\red0\green0\blue0;\red155\green35\blue147;\red15\green104\blue160;\red108\green54\blue169;\red28\green0\blue207;
+\red50\green109\blue116;}
+{\*\expandedcolortbl;;\csgenericrgb\c39147\c22031\c12446;\csgenericrgb\c100000\c100000\c100000;\csgenericrgb\c77000\c10200\c8600;
+\csgenericrgb\c0\c0\c0\c85000;\csgenericrgb\c60759\c13753\c57628;\csgenericrgb\c5882\c40784\c62745;\csgenericrgb\c42190\c21278\c66379;\csgenericrgb\c11000\c0\c81000;
+\csgenericrgb\c19418\c42935\c45455;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab791
+\pard\tx791\pardeftab791\pardirnatural\partightenfactor0
+
+\f0\fs32 \cf2 \cb3 #include\cf4 <stdio.h>\cf5 \
+\cf2 #include\cf4 <stdlib.h>\cf5 \
+\
+\pard\tx791\pardeftab791\pardirnatural\partightenfactor0
+
+\f1\b \cf6 void
+\f0\b0 \cf5  \cf7 affiche_vecteur\cf5 (
+\f1\b \cf6 int
+\f0\b0 \cf5 *vecteur, 
+\f1\b \cf6 int
+\f0\b0 \cf5  dimension) \{\
+    
+\f1\b \cf6 int
+\f0\b0 \cf5  i;\
+    \cf8 printf\cf5 (\cf4 " ( "\cf5 );\
+    
+\f1\b \cf6 for
+\f0\b0 \cf5 (i=\cf9 0\cf5 ;i<dimension; i++)\
+        \cf8 printf\cf5 (\cf4 "%d "\cf5 , vecteur[i]);\
+    \cf8 printf\cf5 (\cf4 ")\\n"\cf5 );\
+\}\
+\
+\
+
+\f1\b \cf6 void
+\f0\b0 \cf5  \cf7 affiche_matrice\cf5 (
+\f1\b \cf6 int
+\f0\b0 \cf5  **matrice, 
+\f1\b \cf6 int
+\f0\b0 \cf5  ligne, 
+\f1\b \cf6 int
+\f0\b0 \cf5  colonnes) \{\
+
+\f1\b \cf6 int
+\f0\b0 \cf5  i;\
+
+\f1\b \cf6 for
+\f0\b0 \cf5 (i=\cf9 0\cf5 ; i<ligne ; i++)\
+\{\
+\cf10 affiche_vecteur\cf5 (matrice[i], colonnes);\
+\}\
+\}\
+\
+
+\f1\b \cf6 int
+\f0\b0 \cf5  \cf7 main\cf5 ()\
+\{\
+    
+\f1\b \cf6 int
+\f0\b0 \cf5  d= \cf9 3\cf5 ;\
+    
+\f1\b \cf6 int
+\f0\b0 \cf5  tab[d];\
+    tab[\cf9 0\cf5 ]=\cf9 1\cf5 ;\
+    tab[\cf9 1\cf5 ]=\cf9 2\cf5 ;\
+    tab[\cf9 2\cf5 ]=\cf9 3\cf5 ;\
+    \cf10 affiche_vecteur\cf5 (tab, d);\
+    \
+    \cf8 printf\cf5 (\cf4 "-------------------\\n"\cf5 );\
+    
+\f1\b \cf6 int
+\f0\b0 \cf5  i,j;\
+    
+\f1\b \cf6 int
+\f0\b0 \cf5  n=\cf9 3\cf5 ,m=\cf9 3\cf5 ;\
+    
+\f1\b \cf6 int
+\f0\b0 \cf5  **mat= \cf8 malloc\cf5 (n*
+\f1\b \cf6 sizeof
+\f0\b0 \cf5 (
+\f1\b \cf6 int
+\f0\b0 \cf5 *));\
+    
+\f1\b \cf6 for
+\f0\b0 \cf5 (i=\cf9 0\cf5 ; i<n; i++)\
+    \{\
+        mat[i]= \cf8 malloc\cf5 (m*
+\f1\b \cf6 sizeof
+\f0\b0 \cf5 (
+\f1\b \cf6 int
+\f0\b0 \cf5 ));\
+        
+\f1\b \cf6 for
+\f0\b0 \cf5 (j=\cf9 0\cf5 ; j<m; j++)\
+        \{\
+            mat[i][j]=\cf9 1\cf5 ;\
+        \}\
+    \}\
+    \
+    \cf10 affiche_matrice\cf5 (mat, n, m);\
+    \
+    
+\f1\b \cf6 return
+\f0\b0 \cf5  \cf9 0\cf5 ;\
+\}\
+\
+\
+ex 2 \
+
+\f1\b \cf6 int
+\f0\b0 \cf5  *\cf7 alloue_vecteur\cf5 (
+\f1\b \cf6 int
+\f0\b0 \cf5  dimension, 
+\f1\b \cf6 int
+\f0\b0 \cf5  n)\{\
+
+\f1\b \cf6 int
+\f0\b0 \cf5  i;\
+
+\f1\b \cf6 int
+\f0\b0 \cf5  *vecteur = \cf8 malloc\cf5 ( dimension*
+\f1\b \cf6 sizeof
+\f0\b0 \cf5 (
+\f1\b \cf6 int
+\f0\b0 \cf5 ));\
+
+\f1\b \cf6 for
+\f0\b0 \cf5 (i=\cf9 0\cf5 ; i<dimension ; i++)\
+vecteur[i] = n;\
+
+\f1\b \cf6 return
+\f0\b0 \cf5  vecteur;\
+\}\
+
+\f1\b \cf6 void
+\f0\b0 \cf5  \cf7 affiche_vecteur\cf5 (
+\f1\b \cf6 int
+\f0\b0 \cf5  *vecteur, 
+\f1\b \cf6 int
+\f0\b0 \cf5  dimension) \{\
+    
+\f1\b \cf6 int
+\f0\b0 \cf5  i ;\
+    \cf8 printf\cf5 (\cf4 "("\cf5 );\
+    
+\f1\b \cf6 for
+\f0\b0 \cf5 (i=\cf9 0\cf5 ; i < dimension; i++)\
+        \cf8 printf\cf5 (\cf4 "%d"\cf5 , vecteur[i]);\
+    \cf8 printf\cf5 (\cf4 "\\n"\cf5 );\
+\}\
+
+\f1\b \cf6 void
+\f0\b0 \cf5  \cf7 libere_vecteur\cf5 (
+\f1\b \cf6 int
+\f0\b0 \cf5 *vecteur)\{\
+\cf8 free\cf5 (vecteur);\
+\}\
+
+\f1\b \cf6 int
+\f0\b0 \cf5  \cf7 main\cf5 () \{\
+    
+\f1\b \cf6 int
+\f0\b0 \cf5  *v;\
+    v = \cf10 alloue_vecteur\cf5 (\cf9 3\cf5 ,\cf9 1\cf5 );\
+    \cf10 affiche_vecteur\cf5 (v,\cf9 3\cf5 );\
+    \cf10 libere_vecteur\cf5 (v);\
+    
+\f1\b \cf6 return
+\f0\b0 \cf5  \cf9 0\cf5 ;\
+\}\
+\
+}
